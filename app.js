@@ -1,4 +1,4 @@
-import { getOne } from "./storage/methods.js";
+import { getOne, getAll, deleteOne, postAll } from "./storage/methods.js";
 import { endPointAbrigo, endPointCamiseta, endPointPantalon, endPointCarro } from "./storage/endPointsProducts.js"
 
 let carritoCompra = [];
@@ -9,11 +9,6 @@ addEventListener("DOMContentLoaded", async() => {
     let btnCamisetas = document.querySelector("#camisetas");
     let btnPantalones = document.querySelector("#pantalones");
     let btnCarrito = document.querySelector("#carrito");
-
-    // console.log( await getOne({endPoint: endPointAbrigo}));
-    // console.log( await getOne({endPoint: endPointCamiseta}));
-    // console.log( await getOne({endPoint: endPointPantalon}));
-    // console.log( await getOne({endPoint: endPointCarro}));
     
     actionBtnTodos(btnTodos);
     actionBtnAbrigos(btnAbrigos);
@@ -60,7 +55,7 @@ let actionBtnTodos = (btnTodos)=>{
                             <h3 id="title${idUnico}" class="titleProduct">${element.nombre}</h3>
                             <h5 id="price${idUnico}" class="priceProduct">$ ${element.precio}</h5>
                         </div>
-                        <a id="button${idUnico}" class="myButton">Agregar</a>
+                        <a id="${element.id}" class="myButton">Agregar</a>
                     </div>
                 </div>
                 `
@@ -96,7 +91,7 @@ let actionBtnAbrigos = (btnAbrigos)=>{
                             <h3 id="title${idUnico}" class="titleProduct">${element.nombre}</h3>
                             <h5 id="price${idUnico}" class="priceProduct">$ ${element.precio}</h5>
                         </div>
-                        <a id="button${idUnico}" class="myButton">Agregar</a>
+                        <a id="${element.id}" class="myButton">Agregar</a>
                     </div>
                 </div>
                 `
@@ -132,7 +127,7 @@ let actionBtnCamisetas = (btnCamisetas)=>{
                             <h3 id="title${idUnico}" class="titleProduct">${element.nombre}</h3>
                             <h5 id="price${idUnico}" class="priceProduct">$ ${element.precio}</h5>
                         </div>
-                        <a id="button${idUnico}" class="myButton">Agregar</a>
+                        <a id="${element.id}" class="myButton">Agregar</a>
                     </div>
                 </div>
                 `
@@ -168,7 +163,7 @@ let actionBtnPantalones = (btnPantalones)=>{
                             <h3 id="title${idUnico}" class="titleProduct">${element.nombre}</h3>
                             <h5 id="price${idUnico}" class="priceProduct">$ ${element.precio}</h5>
                         </div>
-                        <a id="button${idUnico}" class="myButton">Agregar</a>
+                        <a id="${element.id}" class="myButton">Agregar</a>
                     </div>
                 </div>
                 `
