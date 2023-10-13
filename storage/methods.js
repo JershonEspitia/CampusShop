@@ -14,7 +14,6 @@ const config = {
   };
 
   export const getOne = async ({endPoint}) => { 
-    console.log("URL", url, "ENDPOINT", endPoint)
     config.method = methods.get;
     let res = await (await fetch(`${url}${endPoint}`, config)).json();
     return res;    
